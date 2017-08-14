@@ -1,8 +1,6 @@
 package cn.edu.nuc.library.extensions
 
-import android.support.annotation.IdRes
 import android.support.v4.app.Fragment
-import android.view.View
 import android.widget.Toast
 
 /**
@@ -11,7 +9,7 @@ import android.widget.Toast
  * Description:
  */
 
-inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id) as T
+//inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = view?.findViewById(id) as T
 
 fun Fragment.toast(resId: Int, duration: Int = Toast.LENGTH_SHORT) = Toast.makeText(activity, resId, duration).show()
 

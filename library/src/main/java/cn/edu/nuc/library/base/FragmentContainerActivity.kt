@@ -13,7 +13,7 @@ import android.support.v4.app.FragmentManager
  * Description:
  */
 
-abstract class FragmentContainerActivity: BaseActivity() {
+abstract class FragmentContainerActivity : BaseActivity() {
 
     private lateinit var mFragmentManager: FragmentManager
     private var mCurrentFragment: Fragment? = null
@@ -30,29 +30,29 @@ abstract class FragmentContainerActivity: BaseActivity() {
 
      * @return 托管 Fragment 的布局文件 Id
      */
-    @LayoutRes
-    protected abstract fun getLayoutResId(): Int
+    @get:LayoutRes
+    abstract val layoutResId: Int
 
     /**
      * 获得托管 Fragment 的 View 的 Id
 
      * @return 托管 Fragment 的 View 的 Id
      */
-    @IdRes
-    protected abstract fun getFragmentContainerId(): Int
+    @get:IdRes
+    abstract val fragmentContainerId: Int
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutResId())
+        setContentView(layoutResId)
 
         mFragmentManager = supportFragmentManager
-        mCurrentFragment = mFragmentManager.findFragmentById(getFragmentContainerId())
+        mCurrentFragment = mFragmentManager.findFragmentById(fragmentContainerId)
 
         if (null == mCurrentFragment) {
             mCurrentFragment = createFragment()
             mFragmentManager.beginTransaction()
-                    .add(getFragmentContainerId(), mCurrentFragment)
+                    .add(fragmentContainerId, mCurrentFragment)
                     .commit()
         }
     }
@@ -64,7 +64,8 @@ abstract class FragmentContainerActivity: BaseActivity() {
      */
     fun switchFragment(fragment: Fragment) {
         if (mCurrentFragment == null
-                || fragment::class.java.name != (mCurrentFragment!!::class.java.name)) {
+                ||
+                fragment::class.java.name != (mCurrentFragment!!::class.java.name)) {
             val fragmentTransaction = mFragmentManager
                     .beginTransaction()
                     .setCustomAnimations(android.R.anim.fade_in,
@@ -73,7 +74,7 @@ abstract class FragmentContainerActivity: BaseActivity() {
                 // 隐藏当前 mCurrentFragment，add fragment 到 Activity 中
                 fragmentTransaction
                         .hide(mCurrentFragment)
-                        .add(getFragmentContainerId(), fragment)
+                        .add(fragmentContainerId, fragment)
                         .commit()
                 mCurrentFragment = fragment
             } else {

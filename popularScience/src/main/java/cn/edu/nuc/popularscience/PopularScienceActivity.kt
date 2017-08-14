@@ -1,16 +1,16 @@
 package cn.edu.nuc.popularscience
 
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import cn.edu.nuc.library.base.FragmentContainerActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 
 @Route(path = "/pbs_ps/1")
-class PopularScienceActivity : AppCompatActivity() {
+class PopularScienceActivity : FragmentContainerActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.ps_activity)
+    override val layoutResId: Int = R.layout.ps_activity
 
+    override val fragmentContainerId: Int = R.id.ps_fragment_container
 
-    }
+    override fun createFragment(): Fragment = PopularScienceFragment.newInstance()
+
 }

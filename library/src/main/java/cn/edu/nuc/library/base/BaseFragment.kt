@@ -1,6 +1,7 @@
 package cn.edu.nuc.library.base
 
 import android.os.Bundle
+import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -17,15 +18,16 @@ abstract class BaseFragment: Fragment() {
 
     protected lateinit var mView: View
 
-    @LayoutRes
-    protected abstract fun  getLayoutResId(): Int
+    @get:LayoutRes
+    abstract val layoutResId: Int
 
     protected abstract fun createView(savedInstanceState: Bundle?)
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mView = inflater!!.inflate(getLayoutResId(), container, false)
+        mView = inflater!!.inflate(layoutResId, container, false)
         createView(savedInstanceState)
         return mView
     }
 
+    inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = mView.findViewById(id) as T
 }
