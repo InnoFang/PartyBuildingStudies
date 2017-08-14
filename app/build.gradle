@@ -25,7 +25,15 @@ android {
     }
 }
 
+kapt {
+    generateStubs = true
+    arguments {
+        arg("moduleName",project.getName())
+    }
+}
+
 dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     println IsDebug.toBoolean()
     if (IsDebug.toBoolean()) {
         compile project(':library')

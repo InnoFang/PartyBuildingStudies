@@ -54,6 +54,8 @@ ext {
     /* EventBus */
     eventbus = '3.0.0'
 
+    /* JSoup */
+    jsoup = '1.10.3'
 
     /* ARouter */
     arouter_api = '1.2.2'
