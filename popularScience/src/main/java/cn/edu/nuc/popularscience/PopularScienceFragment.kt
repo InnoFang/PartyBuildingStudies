@@ -1,6 +1,7 @@
 package cn.edu.nuc.popularscience
 
 import android.os.Bundle
+import android.support.annotation.DrawableRes
 import android.view.Gravity
 import android.view.ViewGroup
 import android.webkit.WebView
@@ -40,11 +41,13 @@ class PopularScienceFragment : BaseFragment() {
 
         wvContent.settings.javaScriptEnabled = true
         wvContent.loadUrl("file:///android_asset/ps_content.html")
-        wvContent.addJavascriptInterface(activity, "android")
+       // wvContent.addJavascriptInterface(activity, "android")
 
         tvTitle.setOnClickListener {
 
             popupWindow.showAtLocation(R.layout.ps_fragment, Gravity.TOP, 0, 200)
+
+            changeTitleNavigationIcon(R.drawable.ps_ic_expand_less)
 
             popupWindow.setOnClickListener(R.id.ps_content_title_one, {
                 tvTitle.text = getString(R.string.ps_pbs_1_title)
@@ -69,7 +72,16 @@ class PopularScienceFragment : BaseFragment() {
                 if (contentName != "") {
                     wvContent.loadUrl("javascript:changeContent('$contentName')")
                 }
+                changeTitleNavigationIcon(R.drawable.ps_ic_expand_more)
             }
         }
+    }
+
+
+    private fun changeTitleNavigationIcon(@DrawableRes id: Int) {
+        @Suppress("DEPRECATION")
+        val drawable = resources.getDrawable(id)
+        drawable.setBounds(0, 0, drawable.minimumWidth, drawable.minimumHeight)
+        tvTitle.setCompoundDrawables(null, null, null, drawable)
     }
 }

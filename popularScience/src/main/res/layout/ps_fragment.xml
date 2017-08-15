@@ -14,7 +14,8 @@
         android:text="@string/ps_pbs_1_title"
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:drawableBottom="@drawable/ps_ic_expand_more"/>
 
     <View
         android:layout_width="match_parent"
