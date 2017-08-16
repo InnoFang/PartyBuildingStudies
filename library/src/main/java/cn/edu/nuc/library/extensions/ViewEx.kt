@@ -16,3 +16,15 @@ inline fun <reified T : View> View.find(@IdRes id: Int): T = findViewById(id) as
 
 fun ViewGroup.inflateView(@LayoutRes id: Int): View = LayoutInflater.from(context).inflate(id, this, false)
 
+
+fun View.makeVisible() {
+    visibility = View.VISIBLE
+}
+
+fun View.makeInvisible() {
+    visibility = View.INVISIBLE
+}
+
+fun View.makeGone() {
+    visibility = View.GONE
+}

@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull
 
 abstract class BaseRecyclerAdapter<VH : BaseViewHolder<L>, L : Any>
 @JvmOverloads
-constructor(protected var mContext: Context, protected var mList: MutableList<L> = ArrayList<L>(0))
+constructor(protected var mContext: Context, protected var mList: java.util.ArrayList<L> = ArrayList<L>(0))
     : RecyclerView.Adapter<VH>() {
 
     @get:LayoutRes
@@ -24,6 +24,15 @@ constructor(protected var mContext: Context, protected var mList: MutableList<L>
 
     @NotNull
     abstract fun createViewHolder(parent: ViewGroup, viewType: Int, view: View): RecyclerView.ViewHolder
+
+    fun getList(): List<L>? {
+        return mList
+    }
+
+    fun setList(list: List<L>) {
+        mList = list as java.util.ArrayList<L>
+        notifyDataSetChanged()
+    }
 
     fun addItem(l: L) {
         mList.add(l)
@@ -36,6 +45,12 @@ constructor(protected var mContext: Context, protected var mList: MutableList<L>
             mList.removeAt(pos)
             notifyItemRemoved(pos)
         }
+    }
+
+    fun resetItem(list: ArrayList<L>) {
+        mList.clear()
+        list.map { mList.add(it) }
+        notifyDataSetChanged()
     }
 
     @Suppress("UNCHECKED_CAST")

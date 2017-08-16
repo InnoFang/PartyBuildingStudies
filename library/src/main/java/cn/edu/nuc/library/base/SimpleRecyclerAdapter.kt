@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.annotation.LayoutRes
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import java.util.*
 
 /**
  * Author: Inno Fang
@@ -12,7 +13,9 @@ import android.view.ViewGroup
  */
 
 abstract class SimpleRecyclerAdapter<T>
-constructor(val mContext: Context, @LayoutRes val id: Int, var mList: MutableList<T>) : RecyclerView.Adapter<SimpleViewHolder>() {
+constructor(val mContext: Context,
+            @LayoutRes val id: Int,
+            var mList: ArrayList<T>) : RecyclerView.Adapter<SimpleViewHolder>() {
 
     fun addItem(t: T) {
         mList.add(t)
@@ -27,6 +30,11 @@ constructor(val mContext: Context, @LayoutRes val id: Int, var mList: MutableLis
         }
     }
 
+    fun resetItem(list: ArrayList<T>) {
+        mList.clear()
+        mList = list
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): SimpleViewHolder
         = SimpleViewHolder.getViewHolder(mContext, parent!!, id)

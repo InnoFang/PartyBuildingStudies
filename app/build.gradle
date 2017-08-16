@@ -39,6 +39,7 @@ dependencies {
         compile project(':library')
     } else {
         compile project(':exam')
+        compile project(':studies')
         compile project(':overview')
         compile project(':popularScience')
     }

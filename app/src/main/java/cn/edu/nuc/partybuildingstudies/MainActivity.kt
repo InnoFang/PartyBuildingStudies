@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
             R.id.exam_button -> { ARouter.getInstance().build("/pbs_exam/1").navigation() }
             R.id.ov_button   -> { ARouter.getInstance().build("/pbs_ov/1").navigation() }
             R.id.ps_button   -> { ARouter.getInstance().build("/pbs_ps/1").navigation() }
+            R.id.sd_button   -> { ARouter.getInstance().build("/pbs_sd/1").navigation() }
         }
     }
 }

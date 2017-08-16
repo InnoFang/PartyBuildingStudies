@@ -34,7 +34,7 @@ open class SimpleViewHolder(val mItemView: View) : RecyclerView.ViewHolder(mItem
 
     @Suppress("UNCHECKED_CAST")
     fun <T : View> getView(@IdRes id: Int): T {
-        mViews.get(id)?.let {
+        mViews.get(id)?:let {
             val child = mItemView.findViewById(id)
             mViews.put(id, child)
         }
