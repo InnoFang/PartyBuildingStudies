@@ -1,5 +1,6 @@
 package cn.edu.nuc.exam.exam.question;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -30,6 +31,7 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
     private RadioButton mBRadioButton;
     private RadioButton mCRadioButton;
     private RadioButton mDRadioButton;
+    private TextView mResultTextView;
 
     public static QuestionFragment newInstance(Question.SubjectBean bean) {
 
@@ -58,6 +60,7 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
         mBRadioButton = (RadioButton) mView.findViewById(R.id.answer_b_radio_button);
         mCRadioButton = (RadioButton) mView.findViewById(R.id.answer_c_radio_button);
         mDRadioButton = (RadioButton) mView.findViewById(R.id.answer_d_radio_button);
+        mResultTextView = (TextView) mView.findViewById(R.id.result_text_view);
 
         init();
     }
@@ -81,10 +84,14 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//        if (isChecked) {
-//            if (buttonView.getText().equals(mQuestion.getAnswer())) {
-//
-//            }
-//        }
+        if (isChecked) {
+            if (buttonView.getText().equals(mQuestion.getAnswer())) {
+                mResultTextView.setText(getString(R.string.ex_right));
+                mResultTextView.setTextColor(Color.GREEN);
+            } else {
+                mResultTextView.setText(getString(R.string.ex_wrong, mQuestion.getAnswer()));
+                mResultTextView.setTextColor(Color.RED);
+            }
+        }
     }
 }

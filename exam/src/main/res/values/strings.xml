@@ -6,4 +6,6 @@
     <string name="ex_answer_b">B</string>
     <string name="ex_answer_c">C</string>
     <string name="ex_answer_d">D</string>
+    <string name="ex_right">你答对了！</string>
+    <string name="ex_wrong">你答错了！\n\t\t正确答案：%s</string>
 </resources>
