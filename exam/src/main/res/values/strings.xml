@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Exam</string>
     <string name="ex_start_exam">开始测试</string>
+    <string name="ex_question_number">%1$d/%2$d</string>
+    <string name="ex_answer_a">A</string>
+    <string name="ex_answer_b">B</string>
+    <string name="ex_answer_c">C</string>
+    <string name="ex_answer_d">D</string>
 </resources>
