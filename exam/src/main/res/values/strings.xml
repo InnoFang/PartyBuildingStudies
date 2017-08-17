@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Exam</string>
+    <string name="ex_start_exam">开始测试</string>
 </resources>

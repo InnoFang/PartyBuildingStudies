@@ -29,5 +29,7 @@ abstract class BaseFragment: Fragment() {
         return mView
     }
 
-    inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = mView.findViewById(id) as T
+    inline fun <reified T : View> find(@IdRes id: Int) : T = mView.findViewById(id) as T
+
+//    inline fun <reified T : View> Fragment.find(@IdRes id: Int): T = mView.findViewById(id) as T
 }
