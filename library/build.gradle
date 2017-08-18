@@ -62,7 +62,10 @@ dependencies {
     compile "com.alibaba:arouter-api:$rootProject.ext.arouter_api"                                //
     kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"                          //
     /* Kotlin */
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"                             //
+    /* MZBannerView */
+    compile 'com.github.pinguo-zhouwei:MZBannerView:v1.1.2'
+
 }
 repositories {
     mavenCentral()

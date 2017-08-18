@@ -17,6 +17,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -61,4 +62,5 @@ ext {
     /* ARouter */
     arouter_api = '1.2.2'
     arouter_comiler = '1.0.3'
+
 }
