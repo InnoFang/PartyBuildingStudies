@@ -16,7 +16,7 @@ import com.zhouwei.mzbanner.MZBannerView
 class OverviewFragment : BaseFragment() {
 
     companion object {
-        fun newInstance(): OverviewFragment = OverviewFragment()
+       public fun newInstance(): OverviewFragment = OverviewFragment()
     }
 
     private val res = intArrayOf(

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">两学一做</string>
+    <string name="overview">主页</string>
+    <string name="popular_science">科普</string>
+    <string name="studies">学习</string>
+    <string name="exam">测试</string>
 </resources>

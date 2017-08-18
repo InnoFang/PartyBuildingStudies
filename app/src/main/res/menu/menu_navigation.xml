@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_overview"
+        android:icon="@drawable/ic_overview"
+        android:title="@string/overview"/>
+
+    <item
+        android:id="@+id/item_studies"
+        android:icon="@drawable/ic_studies"
+        android:title="@string/studies"/>
+
+    <item
+        android:id="@+id/item_popular_science"
+        android:icon="@drawable/ic_popular_science"
+        android:title="@string/popular_science"/>
+
+    <item
+        android:id="@+id/item_exam"
+        android:icon="@drawable/ic_exam"
+        android:title="@string/exam"/>
+
+</menu>
