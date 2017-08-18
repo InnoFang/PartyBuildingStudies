@@ -5,13 +5,14 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import cn.edu.nuc.library.base.BaseFragment
 import cn.edu.nuc.studies.page.PageFragment
+import com.alibaba.android.arouter.facade.annotation.Route
 
 /**
  * Author: Inno Fang
  * Time: 2017/8/15 10:15
  * Description:
  */
-
+@Route(path = "/pbs_sd_fragment/1")
 class StudiesFragment : BaseFragment() {
 
     companion object {

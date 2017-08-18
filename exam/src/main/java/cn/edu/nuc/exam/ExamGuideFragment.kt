@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import cn.edu.nuc.exam.exam.ExamActivity
 import cn.edu.nuc.library.base.BaseFragment
+import com.alibaba.android.arouter.facade.annotation.Route
 
 /**
  * Author: Inno Fang
@@ -12,7 +13,7 @@ import cn.edu.nuc.library.base.BaseFragment
  * Description:
  */
 
-
+@Route(path = "/pbs_exam_fragment/1")
 class ExamGuideFragment : BaseFragment() {
 
     override val layoutResId: Int = R.layout.ex_fragment_guide_exam

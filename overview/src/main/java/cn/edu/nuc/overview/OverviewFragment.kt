@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import cn.edu.nuc.library.base.BaseFragment
 import cn.edu.nuc.library.extensions.toast
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.zhouwei.mzbanner.MZBannerView
 
 /**
@@ -11,7 +12,7 @@ import com.zhouwei.mzbanner.MZBannerView
  * Time: 2017/8/18 12:55
  * Description:
  */
-
+@Route(path = "/pbs_ov_fragment/1")
 class OverviewFragment : BaseFragment() {
 
     companion object {

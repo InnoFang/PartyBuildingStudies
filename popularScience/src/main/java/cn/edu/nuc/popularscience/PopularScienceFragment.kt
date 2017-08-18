@@ -8,13 +8,14 @@ import android.webkit.WebView
 import android.widget.TextView
 import cn.edu.nuc.library.base.BaseFragment
 import cn.edu.nuc.library.utils.CustomPopupWindow
+import com.alibaba.android.arouter.facade.annotation.Route
 
 /**
  * Author: Inno Fang
  * Time: 2017/8/14 21:42
  * Description:
  */
-
+@Route(path = "/pbs_ps_fragment/1")
 class PopularScienceFragment : BaseFragment() {
 
     companion object {

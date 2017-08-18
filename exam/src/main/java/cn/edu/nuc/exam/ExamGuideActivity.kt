@@ -2,7 +2,6 @@ package cn.edu.nuc.exam
 
 import android.support.v4.app.Fragment
 import cn.edu.nuc.library.base.FragmentContainerActivity
-import com.alibaba.android.arouter.facade.annotation.Route
 
 /**
  * Author: Inno Fang
@@ -10,7 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
  * Description:
  */
 
-@Route(path = "/pbs_exam/1")
+
 class ExamGuideActivity : FragmentContainerActivity() {
 
     override fun createFragment(): Fragment = ExamGuideFragment.newInstance()
