@@ -11,7 +11,9 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".exam.ExamActivity">
+        <activity android:name=".exam.ExamActivity"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:screenOrientation="portrait">
 
         </activity>
     </application>
