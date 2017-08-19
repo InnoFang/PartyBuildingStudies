@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ExamFragment extends BaseFragment {
 
-    private SeekBar mQuestiuonNumberSeekbar;
+    private SeekBar mQuestionNumberSeekBar;
     private TextView mQuestiuonNumberTextView;
     private ViewPager mQuestionViewPager;
 
@@ -46,21 +47,20 @@ public class ExamFragment extends BaseFragment {
     }
 
     @Override
-    public int getLayoutResId() {
+    protected int getLayoutResId() {
         return R.layout.ex_fragment_exam;
     }
 
     @Override
-    protected void createView(Bundle savedInstanceState) {
+    protected void createView(View view, Bundle savedInstanceState) {
 
-        mQuestiuonNumberSeekbar = (SeekBar) mView.findViewById(R.id.question_number_seek_bar);
-        mQuestiuonNumberTextView = (TextView) mView.findViewById(R.id.question_number_text_view);
-        mQuestionViewPager = (ViewPager) mView.findViewById(R.id.question_view_pager);
-
-        init();
+        mQuestionNumberSeekBar = (SeekBar) find(R.id.question_number_seek_bar);
+        mQuestiuonNumberTextView = (TextView) find(R.id.question_number_text_view);
+        mQuestionViewPager = (ViewPager) find(R.id.question_view_pager);
     }
 
-    private void init() {
+    @Override
+    protected void initEvent() {
         Observable.create(new ObservableOnSubscribe<Question>() {
             @Override
             public void subscribe(ObservableEmitter<Question> e) throws Exception {
@@ -80,9 +80,9 @@ public class ExamFragment extends BaseFragment {
 
     private void init(Question question) {
         final int max = question.getSubject().size();
-        mQuestiuonNumberSeekbar.setMax(max);
+        mQuestionNumberSeekBar.setMax(max);
         mQuestiuonNumberTextView.setText(getString(R.string.ex_question_number, 1, max));
-        mQuestiuonNumberSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        mQuestionNumberSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.i("tag", progress + "");
@@ -114,9 +114,9 @@ public class ExamFragment extends BaseFragment {
                 mQuestiuonNumberTextView.setText(getString(R.string.ex_question_number, position + 1, max));
 
                 if (Build.VERSION.SDK_INT >= 24) {
-                    mQuestiuonNumberSeekbar.setProgress(position, true);
+                    mQuestionNumberSeekBar.setProgress(position, true);
                 } else {
-                    mQuestiuonNumberSeekbar.setProgress(position);
+                    mQuestionNumberSeekBar.setProgress(position);
                 }
             }
 

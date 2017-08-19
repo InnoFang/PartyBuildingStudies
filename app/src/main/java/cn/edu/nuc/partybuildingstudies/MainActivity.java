@@ -14,8 +14,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.edu.nuc.overview.OverviewFragment;
-
 /**
  * Author: Inno Fang
  * Time: 2017/8/18 22:13
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         List<Fragment> list = new ArrayList<>();
-        list.add(/*(Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation()*/OverviewFragment.Companion.newInstance());
+        list.add((Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_sd_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_ps_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_exam_fragment/1").navigation());

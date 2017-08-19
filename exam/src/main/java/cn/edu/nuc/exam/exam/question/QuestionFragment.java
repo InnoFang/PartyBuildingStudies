@@ -43,9 +43,10 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
     }
 
     @Override
-    public int getLayoutResId() {
+    protected int getLayoutResId() {
         return R.layout.ex_fragment_question_item;
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,18 +55,18 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
     }
 
     @Override
-    protected void createView(Bundle savedInstanceState) {
-        mQuestionTextView = (TextView) mView.findViewById(R.id.question_text_view);
-        mARadioButton = (RadioButton) mView.findViewById(R.id.answer_a_radio_button);
-        mBRadioButton = (RadioButton) mView.findViewById(R.id.answer_b_radio_button);
-        mCRadioButton = (RadioButton) mView.findViewById(R.id.answer_c_radio_button);
-        mDRadioButton = (RadioButton) mView.findViewById(R.id.answer_d_radio_button);
-        mResultTextView = (TextView) mView.findViewById(R.id.result_text_view);
+    protected void createView(View view, Bundle savedInstanceState) {
+        mQuestionTextView = (TextView) find(R.id.question_text_view);
+        mARadioButton = (RadioButton) find(R.id.answer_a_radio_button);
+        mBRadioButton = (RadioButton) find(R.id.answer_b_radio_button);
+        mCRadioButton = (RadioButton) find(R.id.answer_c_radio_button);
+        mDRadioButton = (RadioButton) find(R.id.answer_d_radio_button);
+        mResultTextView = (TextView) find(R.id.result_text_view);
 
-        init();
     }
 
-    private void init() {
+    @Override
+    protected void initEvent() {
         mQuestionTextView.setText(mQuestion.getQuestion());
         mARadioButton.setText(mQuestion.getA());
         mBRadioButton.setText(mQuestion.getB());
@@ -81,6 +82,7 @@ public class QuestionFragment extends BaseFragment implements RadioButton.OnChec
         mBRadioButton.setOnCheckedChangeListener(this);
         mCRadioButton.setOnCheckedChangeListener(this);
     }
+
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

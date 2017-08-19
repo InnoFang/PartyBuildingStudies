@@ -18,7 +18,7 @@ class App: Application() {
             ARouter.openLog()
             ARouter.openDebug()
         }
-        ARouter.init(this);
+        ARouter.init(this)
     }
 
 }

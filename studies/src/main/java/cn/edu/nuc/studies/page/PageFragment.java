@@ -4,18 +4,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.nuc.library.base.BaseFragment;
 import cn.edu.nuc.library.utils.OnRecyclerItemListener;
 import cn.edu.nuc.studies.ArticleItem;
 import cn.edu.nuc.studies.R;
@@ -28,7 +26,7 @@ import cn.edu.nuc.studies.R;
  */
 
 
-public class PageFragment extends Fragment implements StudiesPageContract.View {
+public class PageFragment extends BaseFragment implements StudiesPageContract.View {
 
     private static final String ARG_URL = "url";
 
@@ -36,7 +34,7 @@ public class PageFragment extends Fragment implements StudiesPageContract.View {
     private StudiesPageAdapter mAdapter;
     private StudiesPageContract.Presenter mPresenter;
 
-    private RecyclerView rvStudies;
+    private RecyclerView mStudiesRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     public static PageFragment newInstance(String url) {
@@ -57,17 +55,25 @@ public class PageFragment extends Fragment implements StudiesPageContract.View {
         mPresenter = new StudiesPagePresenter(this);
     }
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.sd_fragment_page, container, false);
-        rvStudies = (RecyclerView) view.findViewById(R.id.sd_recycler_view);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.sd_swipe_refresh_layout);
+    protected int getLayoutResId() {
+        return R.layout.sd_fragment_page;
+    }
 
-        rvStudies.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvStudies.setAdapter(mAdapter);
+    @Override
+    protected void createView(View view, Bundle savedInstanceState) {
+        mStudiesRecyclerView = (RecyclerView) find(R.id.sd_recycler_view);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) find(R.id.sd_swipe_refresh_layout);
 
-        mSwipeRefreshLayout.setColorSchemeColors( ContextCompat.getColor(getActivity(), R.color.colorPrimary),
+    }
+
+    @Override
+    protected void initEvent() {
+
+        mStudiesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mStudiesRecyclerView.setAdapter(mAdapter);
+
+        mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getActivity(), R.color.colorPrimary),
                 ContextCompat.getColor(getActivity(), R.color.colorAccent),
                 ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark));
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -79,7 +85,6 @@ public class PageFragment extends Fragment implements StudiesPageContract.View {
 
         mPresenter.onHandleParseHTML(url);
         setLoadingIndicator(true);
-        return view;
     }
 
     @Override
@@ -93,7 +98,7 @@ public class PageFragment extends Fragment implements StudiesPageContract.View {
             return;
 
         mAdapter.setList(list);
-        rvStudies.addOnItemTouchListener(new OnRecyclerItemListener(rvStudies) {
+        mStudiesRecyclerView.addOnItemTouchListener(new OnRecyclerItemListener(mStudiesRecyclerView) {
             @Override
             public void onItemClick(RecyclerView.ViewHolder viewHolder) {
                 if (viewHolder instanceof StudiesPageViewHolder) {

@@ -23,6 +23,11 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
     }
     buildTypes {
         release {
@@ -56,8 +61,8 @@ dependencies {
 
     compile project(':library')
 
-    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
 
 }
 repositories {
