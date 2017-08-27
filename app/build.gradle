@@ -1,7 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -31,13 +28,6 @@ android {
     }
 }
 
-kapt {
-    generateStubs = true
-    arguments {
-        arg("moduleName",project.getName())
-    }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 
@@ -50,8 +40,7 @@ dependencies {
         compile project(':popularScience')
     }
 
-    kapt "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
 }
 repositories {
     mavenCentral()

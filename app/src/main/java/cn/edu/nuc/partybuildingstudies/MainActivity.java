@@ -8,11 +8,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.edu.nuc.exam.ExamGuideFragment;
+import cn.edu.nuc.overview.OverviewFragment;
+import cn.edu.nuc.popularscience.PopularScienceFragment;
+import cn.edu.nuc.studies.StudiesFragment;
 
 /**
  * Author: Inno Fang
@@ -83,10 +89,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
         List<Fragment> list = new ArrayList<>();
-        list.add((Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation());
+        Fragment fragment = (Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation();
+        if (fragment == null) {
+            Toast.makeText(this, "IS NULL", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "IS NOT NULL", Toast.LENGTH_SHORT).show();
+        }
+
+        /*list.add((Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_sd_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_ps_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_exam_fragment/1").navigation());
+*/
+        list.add(OverviewFragment.newInstance());
+        list.add(StudiesFragment.newInstance());
+        list.add(PopularScienceFragment.newInstance());
+        list.add(ExamGuideFragment.newInstance());
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), list);
         mViewPager.setAdapter(adapter);
