@@ -8,9 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,12 +86,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         List<Fragment> list = new ArrayList<>();
-        Fragment fragment = (Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation();
-        if (fragment == null) {
-            Toast.makeText(this, "IS NULL", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "IS NOT NULL", Toast.LENGTH_SHORT).show();
-        }
+//        Fragment fragment = (Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation();
+//        if (fragment == null) {
+//            Toast.makeText(this, "IS NULL", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "IS NOT NULL", Toast.LENGTH_SHORT).show();
+//        }
 
         /*list.add((Fragment) ARouter.getInstance().build("/pbs_ov_fragment/1").navigation());
         list.add((Fragment) ARouter.getInstance().build("/pbs_sd_fragment/1").navigation());
