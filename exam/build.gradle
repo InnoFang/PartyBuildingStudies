@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         if (IsDebug.toBoolean()) {
-            applicationId "cn.edu.nuc.exam"
+            applicationId "cn.edu.nuc.ex_exam"
         }
 
         minSdkVersion rootProject.ext.minSdkVersion
@@ -46,7 +46,7 @@ android {
             }
         }
 
-        resourcePrefix "ex_"
+//        resourcePrefix "ex_"
     }
 }
 

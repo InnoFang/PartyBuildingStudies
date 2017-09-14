@@ -11,7 +11,7 @@
         <!--android:layout_height="?attr/actionBarSize"-->
         <!--android:scaleType="fitXY"-->
         <!--android:contentDescription="@null"-->
-        <!--android:src="@drawable/header"/>-->
+        <!--android:src="@drawable/ov_header"/>-->
 
     <View
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@null"
-        android:src="@drawable/divider"/>
+        android:src="@drawable/ov_divider"/>
 
     <WebView
         android:id="@+id/content_web_view"

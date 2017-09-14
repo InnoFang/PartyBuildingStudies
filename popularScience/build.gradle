@@ -46,7 +46,7 @@ android {
             }
         }
 
-        resourcePrefix "ps_"
+//        resourcePrefix "ps_"
     }
 }
 

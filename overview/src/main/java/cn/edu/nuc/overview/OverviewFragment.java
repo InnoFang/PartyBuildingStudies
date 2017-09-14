@@ -45,11 +45,11 @@ public class OverviewFragment extends BaseFragment {
     protected void initEvent() {
 
         List<Integer> res = Arrays.asList(
-                R.drawable.banner_1,
-                R.drawable.banner_2,
-                R.drawable.banner_3,
-                R.drawable.banner_4,
-                R.drawable.banner_5);
+                R.drawable.ov_banner_1,
+                R.drawable.ov_banner_2,
+                R.drawable.ov_banner_3,
+                R.drawable.ov_banner_4,
+                R.drawable.ov_banner_5);
 
         mBanner.setBannerPageClickListener(new MZBannerView.BannerPageClickListener() {
             @Override
