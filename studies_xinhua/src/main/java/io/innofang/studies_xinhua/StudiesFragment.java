@@ -1,4 +1,4 @@
-package cn.edu.nuc.studies;
+package io.innofang.studies_xinhua;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,7 +8,8 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 
 import cn.edu.nuc.library.base.BaseFragment;
-import cn.edu.nuc.studies.page.PageFragment;
+import cn.edu.nuc.studies.StudiesViewPagerAdapter;
+import io.innofang.studies_xinhua.page.PageFragment;
 
 /**
  * Author: Inno Fang
@@ -16,8 +17,9 @@ import cn.edu.nuc.studies.page.PageFragment;
  * Description:
  */
 
-@Route(path = "/pbs_sd_fragment/1")
+@Route(path = "/pbs_sd_xinhua_fragment/1")
 public class StudiesFragment extends BaseFragment {
+
 
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
@@ -40,16 +42,16 @@ public class StudiesFragment extends BaseFragment {
     @Override
     protected void initEvent() {
         String[] titles = {
-                getString(R.string.sd_learning_and_discussion),
-                getString(R.string.sd_hot_spot_review),
-                getString(R.string.sd_advanced_model)
+                getString(R.string.important_comments),
+                getString(R.string.focus),
+                getString(R.string.practice_and_implement)
         };
 
         StudiesViewPagerAdapter adapter = new StudiesViewPagerAdapter(getChildFragmentManager(), titles);
 
-        adapter.addFragment(PageFragment.newInstance("http://www.gapp.gov.cn/ztzzd/rdztl/lxyz/channels/6564.shtml"));
-        adapter.addFragment(PageFragment.newInstance("http://www.gapp.gov.cn/ztzzd/rdztl/lxyz/channels/6566.shtml"));
-        adapter.addFragment(PageFragment.newInstance("http://www.gapp.gov.cn/ztzzd/rdztl/lxyz/channels/6570.shtml"));
+        adapter.addFragment(PageFragment.newInstance("http://www.xinhuanet.com/politics/liangxueyizuo/zypl.htm"));
+        adapter.addFragment(PageFragment.newInstance("http://www.xinhuanet.com/politics/liangxueyizuo/jj.htm"));
+        adapter.addFragment(PageFragment.newInstance("http://www.xinhuanet.com/politics/liangxueyizuo/jxls.htm"));
 
         mViewPager.setAdapter(adapter);
         mTabLayout.setupWithViewPager(mViewPager);

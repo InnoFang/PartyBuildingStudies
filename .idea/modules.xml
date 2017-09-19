@@ -7,8 +7,10 @@
       <module fileurl="file://$PROJECT_DIR$/exam/exam.iml" filepath="$PROJECT_DIR$/exam/exam.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/overview/overview.iml" filepath="$PROJECT_DIR$/overview/overview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/overview_new/overview_new.iml" filepath="$PROJECT_DIR$/overview_new/overview_new.iml" />
       <module fileurl="file://$PROJECT_DIR$/popularScience/popularScience.iml" filepath="$PROJECT_DIR$/popularScience/popularScience.iml" />
       <module fileurl="file://$PROJECT_DIR$/studies/studies.iml" filepath="$PROJECT_DIR$/studies/studies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/studies_xinhua/studies_xinhua.iml" filepath="$PROJECT_DIR$/studies_xinhua/studies_xinhua.iml" />
     </modules>
   </component>
 </project>

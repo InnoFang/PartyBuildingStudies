@@ -1,1 +1,1 @@
-include ':app', ':popularScience', ':library', ':exam', ':overview', ':studies'
+include ':app', ':popularScience', ':library', ':exam', ':overview', ':studies', ':studies_xinhua', ':overview_new'
