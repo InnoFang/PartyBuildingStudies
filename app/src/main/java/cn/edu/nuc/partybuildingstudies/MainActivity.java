@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.edu.nuc.exam.ExamGuideFragment;
-import cn.edu.nuc.overview.OverviewFragment;
 import cn.edu.nuc.popularscience.PopularScienceFragment;
-import cn.edu.nuc.studies.StudiesFragment;
+import io.innofang.overview_new.OverviewFragment;
+import io.innofang.studies_xinhua.StudiesFragment;
 
 /**
  * Author: Inno Fang
