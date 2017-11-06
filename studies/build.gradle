@@ -13,9 +13,8 @@ android {
 
     defaultConfig {
         if (IsDebug.toBoolean()) {
-            applicationId "cn.edu.nuc.studies"
+            applicationId "io.innofang.studies"
         }
-
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -36,6 +35,7 @@ android {
         }
     }
 
+
     sourceSets {
         main {
             if (IsDebug.toBoolean()) {
@@ -49,21 +49,10 @@ android {
     }
 }
 
-kapt {
-    generateStubs = true
-    arguments {
-        arg("moduleName", project.getName())
-    }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile project(':library')
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-}
-
-repositories {
-    mavenCentral()
 }

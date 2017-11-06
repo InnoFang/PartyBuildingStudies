@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         if (IsDebug.toBoolean()) {
-            applicationId "cn.edu.nuc.overview"
+            applicationId "io.innofang.overview"
         }
 
         minSdkVersion rootProject.ext.minSdkVersion
@@ -25,7 +25,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
@@ -35,7 +35,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     sourceSets {
         main {
             if (IsDebug.toBoolean()) {
@@ -44,17 +43,9 @@ android {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
             }
         }
-
-//        resourcePrefix "ov_"
     }
 }
 
-kapt {
-    generateStubs = true
-    arguments {
-        arg("moduleName",project.getName())
-    }
-}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
