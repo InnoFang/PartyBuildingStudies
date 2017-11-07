@@ -49,7 +49,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    testCompile 'junit:junit:4.12'
     compile project(':library')
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

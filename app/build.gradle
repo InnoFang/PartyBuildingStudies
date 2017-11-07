@@ -26,6 +26,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -35,12 +40,17 @@ dependencies {
         compile project(':library')
     } else {
         compile project(':exam')
-        compile project(':studies')
-        compile project(':overview')
-        compile project(':popularScience')
+//        compile project(':studies')
+//        compile project(':overview')
+//        compile project(':popularScience')
+
+//        compile(name:'exam-release', ext:'aar')
+        compile(name:'overview-release', ext:'aar')
+        compile(name:'popularScience-release', ext:'aar')
+        compile(name:'studies-release', ext:'aar')
     }
 
-    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.arouter_comiler"
+    annotationProcessor 'com.alibaba:arouter-compiler:' + rootProject.arouter_comiler
 }
 repositories {
     mavenCentral()
